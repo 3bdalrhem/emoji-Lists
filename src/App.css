@@ -1,0 +1,360 @@
+/* Layout */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 16px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.topBar {
+  width: min(720px, 95vw);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: 0.2px;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  opacity: 0.8;
+}
+
+/* Theme button */
+.themeBtn {
+  border: 1px solid;
+  padding: 10px 14px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.08s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.themeBtn:hover {
+  transform: scale(1.03);
+}
+
+/* Emoji grid */
+.emojiGrid {
+  width: min(720px, 95vw);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 16px;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+
+.emojiBtn {
+  width: 100%;
+  aspect-ratio: 1 / 1;   
+  border-radius: 20px;
+  border: 1px solid;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  position: relative;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+
+.emojiBtn:hover {
+  transform: scale(1.05);
+}
+
+.emojiBtnActive {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Result card */
+.result {
+  width: min(720px, 95vw);
+  text-align: center;
+  padding: 18px 22px;
+  border: 1px solid;
+  border-radius: 18px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.bigEmoji {
+  font-size: 54px;
+}
+
+.emojiName {
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.hint {
+  opacity: 0.75;
+}
+
+.footerHint {
+  opacity: 0.7;
+  font-size: 13px;
+}
+
+/* ============ LIGHT THEME ============ */
+.page.light {
+  background: linear-gradient(135deg, #f6f9ff, #ffffff);
+  color: #0f172a;
+}
+
+.page.light .themeBtn {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  color: #0f172a;
+}
+
+.page.light .emojiBtn {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+.page.light .emojiBtnActive {
+  border-color: #0f172a;
+}
+
+.page.light .result {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: #e2e8f0;
+}
+
+/* ============ DARK THEME ============ */
+.page.dark {
+  background: linear-gradient(135deg, #0b1020, #111827);
+  color: #e5e7eb;
+}
+
+.page.dark .themeBtn {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #e5e7eb;
+}
+
+.page.dark .emojiBtn {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.page.dark .emojiBtnActive {
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.35);
+}
+
+.page.dark .result {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+.emoji {
+  font-size: 44px;
+   transition: transform 0.15s ease;
+}
+.emojiBtn:hover {
+  transform: scale(1.12) rotate(2deg);
+  z-index: 2;
+}
+.page.light .emojiBtn:hover {
+  box-shadow:
+    0 12px 25px rgba(0, 0, 0, 0.15),
+    0 0 0 2px rgba(0, 0, 0, 0.08);
+}
+.page.dark .emojiBtn:hover {
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.6),
+    0 0 25px rgba(99, 102, 241, 0.55);
+}
+.page.dark .emojiBtn {
+  backdrop-filter: blur(6px);
+}
+.searchInput {
+  margin-top: 12px;
+  width: min(420px, 80vw);
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.noResults {
+  margin-top: 8px;
+  opacity: 0.8;
+}
+
+
+.page.light .searchInput {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  color: #0f172a;
+}
+
+
+.page.dark .searchInput {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #e5e7eb;
+}
+/* Actions container */
+.topActions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Favorite filter button */
+.favFilterBtn {
+  border: 1px solid;
+  padding: 10px 14px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 0.08s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.favFilterBtn:hover {
+  transform: scale(1.03);
+}
+
+/* Make emoji button position relative for the heart */
+.emojiBtn {
+  position: relative;
+}
+
+/* Heart button */
+.favBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 6px;
+  border-radius: 999px;
+  transition: transform 0.12s ease, background 0.2s ease;
+}
+
+.favBtn:hover {
+  transform: scale(1.15);
+}
+
+/* Theme-specific styles */
+.page.light .favFilterBtn {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  color: #0f172a;
+}
+
+.page.dark .favFilterBtn {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #e5e7eb;
+}
+
+.page.light .favBtn:hover {
+  background: rgba(15, 23, 42, 0.06);
+}
+
+.page.dark .favBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+.addForm {
+  width: min(720px, 95vw);
+  display: grid;
+  grid-template-columns: 90px 1fr 110px;
+  gap: 10px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.addInput {
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid;
+  outline: none;
+}
+
+.addBtn {
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.formError {
+  grid-column: 1 / -1;
+  opacity: 0.85;
+  font-weight: 600;
+}
+
+/* Light */
+.page.light .addInput,
+.page.light .addBtn {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  color: #0f172a;
+}
+
+/* Dark */
+.page.dark .addInput,
+.page.dark .addBtn {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #e5e7eb;
+}
+@media (hover: none) {
+  .emojiBtn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .emojiBtn:hover .emoji {
+    transform: none;
+  }
+}
+@media (max-width: 520px) {
+  .topBar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .topActions {
+    justify-content: space-between;
+  }
+
+  .searchInput {
+    width: 100%;
+  }
+
+  .addForm {
+    grid-template-columns: 1fr;
+  }
+
+  .addBtn {
+    width: 100%;
+  }
+}
+.emoji {
+  font-size: clamp(34px, 4.5vw, 44px);
+  transition: transform 0.15s ease;
+}
+
+
